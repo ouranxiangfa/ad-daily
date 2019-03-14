@@ -1,0 +1,126 @@
+以下代码，直接放到</head>之前，即可使用
+|| city.indexOf('上海') > -1   这些，是一个
+
+
+
+
+1.屏蔽非手机站（PC）的访问
+<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+<script type="text/javascript">  
+var city = returnCitySN['cname'];
+            function browserRedirect() {  
+                var sUserAgent = navigator.userAgent.toLowerCase();  
+                var bIsIpad = sUserAgent.match(/ipad/i) =="ipad";  
+                var bIsIphoneOs = sUserAgent.match(/iphone os/i) =="iphone os";  
+                var bIsMidp = sUserAgent.match(/midp/i) =="midp";  
+                var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) =="rv:1.2.3.4"; 
+                var bIsUc = sUserAgent.match(/ucweb/i) =="ucweb";  
+                var bIsAndroid = sUserAgent.match(/android/i) =="android";  
+                var bIsCE = sUserAgent.match(/windows ce/i) =="windows ce";  
+                var bIsWM = sUserAgent.match(/windows mobile/i) =="windows mobile";  
+                if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM)    //这里是判断是不是手机
+				{  }                                                                                         //如果是，则执行这里，里面不写东西，就是网页不变
+				else{ 																						 //如果不是，则执行这里
+				   		window.location="pc.html";                                                           //这里是一个跳转，意思是如果不是手机站，则跳转到""里的界面，也可以拿来用做二跳
+																											 //跳转本地的，直接填文件名字，跳转非本地页面，则要加"http://"
+                	}
+                }
+
+            browserRedirect();
+</script>
+
+
+2.屏蔽部分地区的pc访问，但是移动端不屏蔽
+<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+<script type="text/javascript">  
+var city = returnCitySN['cname'];
+            function browserRedirect() {  
+                var sUserAgent = navigator.userAgent.toLowerCase();  
+                var bIsIpad = sUserAgent.match(/ipad/i) =="ipad";  
+                var bIsIphoneOs = sUserAgent.match(/iphone os/i) =="iphone os";  
+                var bIsMidp = sUserAgent.match(/midp/i) =="midp";  
+                var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) =="rv:1.2.3.4"; 
+                var bIsUc = sUserAgent.match(/ucweb/i) =="ucweb";  
+                var bIsAndroid = sUserAgent.match(/android/i) =="android";  
+                var bIsCE = sUserAgent.match(/windows ce/i) =="windows ce";  
+                var bIsWM = sUserAgent.match(/windows mobile/i) =="windows mobile";  
+                if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM){  } 
+				else{ 
+				   		if(city.indexOf('北京') > -1 || city.indexOf('上海') > -1 || city.indexOf('广州') > -1 || city.indexOf('深圳') > -1 || city.indexOf('吉林') > -1 || city.indexOf('浙江') > -1 ){
+						window.location="pc.html";
+                	}else{}	
+                }
+            }  
+            browserRedirect();
+</script>
+
+
+
+3.屏蔽部分地区的移动端访问，但是PC端不屏蔽
+<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+<script type="text/javascript">  
+var city = returnCitySN['cname'];
+            function browserRedirect() {  
+                var sUserAgent = navigator.userAgent.toLowerCase();  
+                var bIsIpad = sUserAgent.match(/ipad/i) =="ipad";  
+                var bIsIphoneOs = sUserAgent.match(/iphone os/i) =="iphone os";  
+                var bIsMidp = sUserAgent.match(/midp/i) =="midp";  
+                var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) =="rv:1.2.3.4"; 
+                var bIsUc = sUserAgent.match(/ucweb/i) =="ucweb";  
+                var bIsAndroid = sUserAgent.match(/android/i) =="android";  
+                var bIsCE = sUserAgent.match(/windows ce/i) =="windows ce";  
+                var bIsWM = sUserAgent.match(/windows mobile/i) =="windows mobile";  
+                if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM){ 
+				   		if(city.indexOf('北京') > -1 || city.indexOf('上海') > -1 || city.indexOf('广州') > -1 || city.indexOf('深圳') > -1 || city.indexOf('吉林') > -1 || city.indexOf('浙江') > -1 ){
+						window.location="pc.html";
+                	}else{}	
+				} 
+				else{ 
+                }
+            }  
+            browserRedirect();
+</script>
+
+
+
+
+
+
+4.屏蔽非pc（手机）站的一切访问
+<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+<script type="text/javascript">  
+var city = returnCitySN['cname'];
+            function browserRedirect() {  
+                var sUserAgent = navigator.userAgent.toLowerCase();  
+                var bIsIpad = sUserAgent.match(/ipad/i) =="ipad";  
+                var bIsIphoneOs = sUserAgent.match(/iphone os/i) =="iphone os";  
+                var bIsMidp = sUserAgent.match(/midp/i) =="midp";  
+                var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) =="rv:1.2.3.4"; 
+                var bIsUc = sUserAgent.match(/ucweb/i) =="ucweb";  
+                var bIsAndroid = sUserAgent.match(/android/i) =="android";  
+                var bIsCE = sUserAgent.match(/windows ce/i) =="windows ce";  
+                var bIsWM = sUserAgent.match(/windows mobile/i) =="windows mobile";  
+                if (!(bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) ){    //这里是判断是不是pc
+																												  //如果是，则执行这里，里面不写东西，就是网页不变
+                } else{              	
+                		window.location = 'http://ag4.45ln.com/';                                                 //这里和上面一样
+                }
+            }  
+            browserRedirect();
+</script>
+
+
+5.屏蔽某地区的pc和移动端的访问
+
+<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+
+<script type="text/javascript">  
+var city = returnCitySN['cname'];
+            function browserRedirect() {  
+                  if (city.indexOf('北京') > -1 ){
+						document.write("404");//window.location="afdsfds.html";                                        //这里如果是上面的地区，则跳转到其他页面
+                	}else{}	                                                              //这里是如果不是上面的地区，则执行这里，里面控代码，是正常打开
+                } 
+            browserRedirect();
+</script>
+
